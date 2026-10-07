@@ -1,11 +1,14 @@
-import JuegosForm from "./components/JuegosForm"
+import JuegosContainer from "./containers/JuegosContainer"
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
-//TODO: Esto va a cambiar cuando agregue el container
 function App() {
   return (
-    <>
- 
-    </>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <>
+        <JuegosContainer />
+      </>
+    </LocalizationProvider>
   )
 }
 
