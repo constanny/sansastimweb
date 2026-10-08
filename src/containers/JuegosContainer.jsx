@@ -22,16 +22,28 @@ function JuegosContainer() {
         setRegistro(true);
     };
 
+    const handleDelete = (juego) => {
+        // Aquí se elimina el juego de la lista
+        const filtrada = juegos.filter((item) => {
+            return item.nombre != juego?.nombre
+        });
+
+        setJuegos(filtrada);
+    }
+
     return (
         <div>
-            <div className='container'>
+            <div className='container mt-3'>
                 <div className="row">
                     <div className="col-4">
                         <JuegosForm onCreateJuego={handleCreateJuego} />
                     </div>
 
                     <div className="col-8">
-                        <JuegosView juegos={juegos} />
+                        <JuegosView
+                            juegos={juegos}
+                            onQuitar={handleDelete}
+                        />
                     </div>
                 </div>
             </div>
